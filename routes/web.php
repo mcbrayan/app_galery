@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\EtiquetaController;
+use App\Http\Controllers\ImagenController;
+use App\Models\Etiqueta;
+use App\Models\Imagen;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +20,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('etiqueta', [EtiquetaController::class, 'index'])->name('etiqueta.index');
+Route::get('imagen', [ImagenController::class, 'index']);
+Route::delete('etiqueta/{id}', [EtiquetaController::class, 'destroy'])->name('etiqueta.destroy');
+Route::get('etiqueta/{id}', [EtiquetaController::class, 'edit'])->name('etiqueta.edit');

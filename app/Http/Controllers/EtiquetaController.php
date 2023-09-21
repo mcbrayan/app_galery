@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Etiqueta;
 use Illuminate\Http\Request;
 
 class EtiquetaController extends Controller
@@ -11,7 +12,8 @@ class EtiquetaController extends Controller
      */
     public function index()
     {
-        return ('');
+        $etiquetas = Etiqueta::all();
+        return view('etiquetas.index', compact('etiquetas'));
     }
 
     /**
@@ -19,7 +21,7 @@ class EtiquetaController extends Controller
      */
     public function create()
     {
-        //
+        return view('etiqueta.create', compact('etiqueta'));
     }
 
     /**
@@ -41,9 +43,10 @@ class EtiquetaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Etiqueta $id,)
     {
-        //
+        // return view('etiqueta.edit', compact('etiqueta'));
+        return view('etiquetas.edit');
     }
 
     /**
@@ -59,6 +62,9 @@ class EtiquetaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $etiqueta = Etiqueta::find($id);
+        $etiqueta->delete();
+
+        return redirect()->route('etiqueta.index')->with('info', 'la etiqueta se elimino con éxito');
     }
 }
