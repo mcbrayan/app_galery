@@ -5,13 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Imagen extends Model
+class Etiqueta extends Model
 {
-    protected $table = 'imagenes';
     use HasFactory;
-    public function etiqueta()
+    public function imagenes()
     {
-        return $this->belongsToMany(Etiqueta::class);
+        return $this->belongsToMany(Imagen::class);
     }
     public function User()
     {

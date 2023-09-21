@@ -2,6 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\Etiqueta;
+use App\Models\Imagen;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
+
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,11 +18,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+
+        Storage::deleteDirectory('public/imagen');
+        Storage::makeDirectory('public/imagen');
+
+        User::factory()->create([
+            'name' => 'Brayan sierra',
+            'email' => 'sbrayandres@gmail.com',
+            'password' => Hash::make('292071'),
+        ]);
+
+        $this->call(EtiquetaSeeder::class);
+        $this->call(ImagenSeeder::class);
     }
 }
