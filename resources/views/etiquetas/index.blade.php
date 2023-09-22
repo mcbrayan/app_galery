@@ -1,10 +1,10 @@
 <x-layouts.cliente>
 
-    <div>
+    <div class="py-8">
         <a href="{{ route('etiqueta.create') }}">
             <button type="button"
                 class="border border-green-500 bg-green-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-green-600 focus:outline-none focus:shadow-outline">
-                Crear Etiqueta
+                <x-heroicon-o-plus class="text-black font-medium" />
             </button>
         </a>
     </div>
@@ -27,14 +27,14 @@
                         <a href="{{ route('etiqueta.edit') }}">
                             <button type="button"
                                 class="border border-teal-500 bg-teal-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-teal-600 focus:outline-none focus:shadow-outline">
-                                Editar
+                                <x-feathericon-edit />
                             </button></a>
                         <form method="POST" action="{{ route('etiqueta.destroy', ['id' => $etiqueta->id]) }}">
                             @csrf
                             @method('DELETE')
-                            <button type="button"
+                            <button type="submit"
                                 class="border border-red-500 bg-red-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline">
-                                Eliminar
+                                {{-- <x-fluentui-delete-12-o /> --}}
                             </button>
                         </form>
                     </td>
