@@ -21,7 +21,7 @@ class EtiquetaController extends Controller
      */
     public function create()
     {
-        return view('etiqueta.create', compact('etiqueta'));
+        return view('etiquetas.create');
     }
 
     /**

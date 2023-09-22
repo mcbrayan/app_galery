@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+<x-layouts.cliente>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
-</head>
+    <div>
+        <a href="{{ route('etiqueta.create') }}">
+            <button type="button"
+                class="border border-green-500 bg-green-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-green-600 focus:outline-none focus:shadow-outline">
+                Crear Etiqueta
+            </button>
+        </a>
+    </div>
 
-<body>
     <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
@@ -24,11 +24,18 @@
                     <td>{{ $etiqueta->id }}</td>
                     <td>{{ $etiqueta->title }}</td>
                     <td width="10px">
-                        <a class="btn btn-primary btn-sm" href="{{ route('etiqueta.edit', $etiqueta) }}">Editar</a>
+                        <a href="{{ route('etiqueta.edit') }}">
+                            <button type="button"
+                                class="border border-teal-500 bg-teal-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-teal-600 focus:outline-none focus:shadow-outline">
+                                Editar
+                            </button></a>
                         <form method="POST" action="{{ route('etiqueta.destroy', ['id' => $etiqueta->id]) }}">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                            <button type="button"
+                                class="border border-red-500 bg-red-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline">
+                                Eliminar
+                            </button>
                         </form>
                     </td>
                 </tr>
@@ -36,11 +43,9 @@
         </tbody>
 
     </table>
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <script>
-        new DataTable('#example');
-    </script>
-</body>
-
-</html>
+    @push('script')
+        <script>
+            new DataTable('#example');
+        </script>
+    @endpush
+</x-layouts.cliente>
