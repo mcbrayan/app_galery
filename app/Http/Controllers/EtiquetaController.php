@@ -43,18 +43,23 @@ class EtiquetaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Etiqueta $id,)
+    public function edit(Etiqueta $etiqueta,)
     {
-        // return view('etiqueta.edit', compact('etiqueta'));
-        return view('etiquetas.edit');
+        return view('etiquetas.edit', compact('etiqueta'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Etiqueta $etiqueta)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+        ]);
+        $etiqueta->update($request->all());
+
+        return redirect()->route('etiquetas.edit', $etiqueta)
+            ->with('info', 'la etiqueta se actualizó con éxito');
     }
 
     /**

@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+<x-layouts.cliente>
+    <form action="{{ route('etiqueta.update') }}" method="post">
+        <div class="flex flex-col">
+            <label for="titulo">Titulo</label>
+            <input class="border border-black rounded" name="title" id="titulo" type="text"
+                value="{{ old('etiqueta', $etiqueta->title) }}">
+        </div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
 
-<body>
-    <h1 class="text-red-700">hola</h1>
+    </form>
 
-</body>
 
-</html>
+</x-layouts.cliente>

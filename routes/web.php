@@ -26,3 +26,4 @@ Route::get('imagen', [ImagenController::class, 'index']);
 Route::delete('etiqueta/{id}', [EtiquetaController::class, 'destroy'])->name('etiqueta.destroy');
 Route::get('etiqueta/create', [EtiquetaController::class, 'create'])->name('etiqueta.create');
 Route::get('etiqueta/edit', [EtiquetaController::class, 'edit'])->name('etiqueta.edit');
+Route::put('etiqueta/update', [EtiquetaController::class, 'update'])->name('etiqueta.update');
