@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Etiqueta extends Model
 {
     use HasFactory;
+    protected $fillable = ['title', '_token', '_method'];
     public function imagenes()
     {
         return $this->belongsToMany(Imagen::class);

@@ -29,22 +29,33 @@ class EtiquetaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $etiqueta = new Etiqueta();
+
+        $etiqueta->title = $request->title;
+        $etiqueta->user_id = 1;
+
+        $etiqueta->save();
+
+        return redirect()->route('etiqueta.edit', $etiqueta)->with('info', 'La etiqueta se creó con éxito');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'user_id' => 'required|integer',
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Etiqueta $etiqueta,)
+    public function edit(Etiqueta $etiqueta)
     {
+
         return view('etiquetas.edit', compact('etiqueta'));
     }
 
@@ -56,9 +67,15 @@ class EtiquetaController extends Controller
         $request->validate([
             'title' => 'required',
         ]);
-        $etiqueta->update($request->all());
 
-        return redirect()->route('etiquetas.edit', $etiqueta)
+        // $etiqueta->update($request->all());
+
+        $etiqueta->update(['title' => $request->title]);
+
+        // $etiqueta->title = $request->title;
+        // $etiqueta->save();
+
+        return redirect()->route('etiqueta.edit', $etiqueta)
             ->with('info', 'la etiqueta se actualizó con éxito');
     }
 
