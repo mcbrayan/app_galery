@@ -4,6 +4,7 @@ use App\Http\Controllers\EtiquetaController;
 use App\Http\Controllers\ImagenController;
 use App\Models\Etiqueta;
 use App\Models\Imagen;
+use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +23,7 @@ Route::get('/', function () {
 });
 
 Route::get('etiqueta', [EtiquetaController::class, 'index'])->name('etiqueta.index');
-Route::get('imagen', [ImagenController::class, 'index']);
+Route::get('imagen', [ImagenController::class, 'index'])->name('imagen.index');
 
 Route::get('etiqueta/create', [EtiquetaController::class, 'create'])->name('etiqueta.create');
 Route::get('etiqueta/edit/{etiqueta}', [EtiquetaController::class, 'edit'])->name('etiqueta.edit');
