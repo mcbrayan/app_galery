@@ -42,11 +42,11 @@
                 </tr>
             @endforeach
         </tbody>
+        @push('script')
+            <script>
+                new DataTable('#example');
+            </script>
+        @endpush
 
     </table>
-    @push('script')
-        <script>
-            new DataTable('#example');
-        </script>
-    @endpush
 </x-layouts.cliente>

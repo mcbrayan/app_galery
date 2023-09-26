@@ -9,6 +9,7 @@ class Imagen extends Model
 {
     protected $table = 'imagenes';
     use HasFactory;
+    protected $fillable = ['title', 'url', 'description', '_token', '_method'];
     public function etiqueta()
     {
         return $this->belongsToMany(Etiqueta::class);

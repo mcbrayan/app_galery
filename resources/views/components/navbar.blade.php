@@ -1,5 +1,5 @@
 <!-- component -->
-<div class="relative shadow bg-white border border-black rounded-lg shadow-lg">
+<div class="relative bg-white border border-black rounded-lg shadow-lg">
     <div class="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"></div>
 
     <div class="w-full backdrop-blur-sm">
