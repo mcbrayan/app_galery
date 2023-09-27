@@ -9,25 +9,10 @@
     </div>
     <div class="grid grid-cols-5 gap-2">
         @foreach ($imagenes as $imagen)
-            <div class="border rounded-lg shadow-lg">
+            <div class="border rounded-lg shadow-lg" onclick="ShowModal()">
                 <img src="{{ asset('storage/imagen/' . $imagen->url) }}" class="w-full rounded-t-lg" alt="">
                 <h3 class="font-medium">{{ $imagen->title }}</h3>
             </div>
         @endforeach
     </div>
-    {{-- @section('css')
-        <style>
-            .image-whaper {
-                position: relative;
-                padding-bottom: 56.25%
-            }
-
-            .image-whaper img {
-                position: absolute;
-                object-fit: cover;
-                width: 100%;
-                height: 100%;
-            }
-        </style>
-    @endsection --}}
 </x-layouts.cliente>
