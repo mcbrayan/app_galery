@@ -29,7 +29,10 @@ class ImagenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'imagen' => 'required|image|max:2048'
+        ]);
+        return $request->file('imagen')->store('public/imagen');
     }
 
     /**

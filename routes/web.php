@@ -30,3 +30,4 @@ Route::get('etiqueta/edit/{etiqueta}', [EtiquetaController::class, 'edit'])->nam
 Route::post('etiqueta/update/{etiqueta}', [EtiquetaController::class, 'update'])->name('etiqueta.update');
 Route::post('etiqueta/store', [EtiquetaController::class, 'store'])->name('etiqueta.store');
 Route::delete('etiqueta/{id}', [EtiquetaController::class, 'destroy'])->name('etiqueta.destroy');
+Route::post('imagen/store', [ImagenController::class, 'store'])->name('imagen.store');
