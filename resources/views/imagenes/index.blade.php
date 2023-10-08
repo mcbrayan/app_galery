@@ -9,7 +9,7 @@
     </div>
     <div class="grid grid-cols-5 gap-2">
         @foreach ($imagenes as $imagen)
-            <div class="border rounded-lg shadow-lg" onclick="ShowModal()">
+            <div class="border rounded-lg shadow-lg" onclick="defaultModal()">
                 <img src="{{ asset('storage/imagen/' . $imagen->url) }}" class="w-full rounded-t-lg" alt="">
                 <h3 class="font-medium">{{ $imagen->title }}</h3>
             </div>
