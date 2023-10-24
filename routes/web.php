@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EtiquetaController;
 use App\Http\Controllers\ImagenController;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Etiqueta;
 use App\Models\Imagen;
 use Faker\Guesser\Name;
@@ -31,3 +32,7 @@ Route::post('etiqueta/update/{etiqueta}', [EtiquetaController::class, 'update'])
 Route::post('etiqueta/store', [EtiquetaController::class, 'store'])->name('etiqueta.store');
 Route::delete('etiqueta/{id}', [EtiquetaController::class, 'destroy'])->name('etiqueta.destroy');
 Route::post('imagen/store', [ImagenController::class, 'store'])->name('imagen.store');
+
+Auth::routes();
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
