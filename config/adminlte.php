@@ -308,7 +308,7 @@ return [
             'text'        => 'Imagenes',
             'url'         => 'imagen',
             'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
+            'label'       => 2,
             'label_color' => 'success',
 
         ],
