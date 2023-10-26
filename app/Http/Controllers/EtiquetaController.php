@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Etiqueta;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EtiquetaController extends Controller
 {
@@ -12,6 +13,7 @@ class EtiquetaController extends Controller
      */
     public function index()
     {
+        $etiqueta = Etiqueta::latest('id')->paginate();
         $etiquetas = Etiqueta::all();
         return view('etiquetas.index', compact('etiquetas'));
     }
@@ -47,6 +49,7 @@ class EtiquetaController extends Controller
         $request->validate([
             'title' => 'required',
             'user_id' => 'required|integer',
+
         ]);
     }
 

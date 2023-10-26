@@ -17,5 +17,4 @@ class Etiqueta extends Model
     {
         return $this->belongsTo(User::class);
     }
-    protected $table = 'etiquetas';
 }
